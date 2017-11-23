@@ -1,3 +1,60 @@
-body {
-  background: black;
-  color: white; }
+.bit2 {
+  background: #FFF;
+  color: black;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px; }
+  .bit2 header {
+    background: #000;
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    z-index: 2; }
+  .bit2 .nav {
+    color: #FFF;
+    list-style-type: none;
+    margin: 40px 40px 0 0;
+    padding: 0;
+    text-transform: uppercase; }
+    .bit2 .nav li {
+      float: left;
+      margin-left: 20px;
+      cursor: pointer; }
+      .bit2 .nav li:hover {
+        color: #EA232E;
+        transition: color .5s linear; }
+  .bit2 section {
+    background: #999;
+    font-family: "Anton", sans-serif;
+    font-size: 3rem;
+    height: 800px;
+    text-transform: uppercase; }
+    .bit2 section.hero {
+      background: url("./../img/forest.jpg") #666;
+      color: #fff;
+      padding: 220px 0 0 0;
+      vertical-align: bottom; }
+      @media (min-width: 728px) {
+        .bit2 section.hero {
+          font-size: 3,5rem;
+          padding: 110px 0 0 50px; } }
+      .bit2 section.hero ul {
+        list-style-type: none;
+        padding-left: 20px;
+        max-width: 50%; }
+        .bit2 section.hero ul li {
+          display: inline;
+          opacity: .7; }
+          .bit2 section.hero ul li.active {
+            opacity: 1; }
+          .bit2 section.hero ul li:nth-child(2) {
+            font-size: 1.5em; }
+          .bit2 section.hero ul li:nth-child(4) {
+            font-size: 1.4em; }
+      .bit2 section.hero .design {
+        font-size: 1.7em; }
+      .bit2 section.hero .development {
+        font-size: 1.4em; }
+  .bit2 .logo {
+    margin-left: 20px; }

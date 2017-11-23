@@ -17,7 +17,8 @@ gulp.task('serve', function () {
    });
 
 var filesToMove = [
-        './src/**/*.html'
+        './src/**/*.html',
+        './src/js/*.js'
     ];
 
 gulp.task('sass', function () {
@@ -34,6 +35,9 @@ gulp.task('watch', function () {
 
     //watch HTML
     gulp.watch('./src/**/*.html', ['move']);
+
+    //watch JS
+    gulp.watch('./src/js/*.js', ['move']);
 });
 
 gulp.task('move', function(){
