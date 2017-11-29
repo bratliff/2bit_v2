@@ -18,7 +18,9 @@ gulp.task('serve', function () {
 
 var filesToMove = [
         './src/**/*.html',
-        './src/js/*.js'
+        './src/js/*.js',
+        './src/js/vendor/**/*.js',
+        './src/js/vendor/**/*.css'
     ];
 
 gulp.task('sass', function () {
