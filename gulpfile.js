@@ -1,10 +1,24 @@
 'use strict';
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    browserSync = require('browser-sync').create(),
+    reload = browserSync.reload;
+
+gulp.task('serve', function () {
+
+    browserSync.init({
+        server: "./dist",
+        port: 8080
+      });
+
+       gulp.watch("./src/*.html").on("change", reload);
+       gulp.watch("./src/**/*.scss").on("change", reload);
+   });
 
 var filesToMove = [
-        './src/**/*.html'
+        './src/**/*.html',
+        './src/js/*.js'
     ];
 
 gulp.task('sass', function () {
@@ -15,7 +29,15 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('./src/scss/**/*.scss', ['sass']);
+
+    //watch SASS
+    gulp.watch('./src/scss/*.scss', ['sass']);
+
+    //watch HTML
+    gulp.watch('./src/**/*.html', ['move']);
+
+    //watch JS
+    gulp.watch('./src/js/*.js', ['move']);
 });
 
 gulp.task('move', function(){
@@ -23,4 +45,4 @@ gulp.task('move', function(){
   .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['sass', 'move']);
+gulp.task('default', ['sass', 'move', 'watch', 'serve']);
