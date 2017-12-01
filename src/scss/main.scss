@@ -89,6 +89,29 @@ $mobile-breakpoint: 728px;
                 font-size: 1.4em;
             }
         }
+
+        &.graphic {
+            background: url('./../img/coney-island.jpg'), url('./../img/diagonal.png');
+            background-size: cover;
+            background-position: 0 -300px;
+            position: relative;
+
+            .overlay {
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: lightblue;
+                top: 0;
+                opacity: .5;
+                background-blend-mode: color-dodge;
+            }
+
+            .corkboard {
+                position: absolute;
+                z-index: 2;
+            }
+        }
     }
 
     .content {
