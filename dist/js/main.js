@@ -1,9 +1,13 @@
 $(document).ready(function(){
 
+    console.log('hello js');
+
     var bit_two = {
-        test : 'whatever'
+        init : function addHandlers() {
+            alert('run init');
+        }
     }
 
-console.log(bit_two.test)
+bit_two.init();
 
 });
