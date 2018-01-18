@@ -30,8 +30,9 @@ $mobile-breakpoint: 728px;
     }
 
     h1 {
+        filter: blur(10px);
         font-size: 4em;
-        margin-top: 80px;
+        margin: 150px 0 0 -100%;
     }
 
     .nav {
@@ -69,17 +70,23 @@ $mobile-breakpoint: 728px;
             vertical-align: bottom;
 
             @media (min-width: $mobile-breakpoint) {
-                font-size: 3,5rem;
+                font-size: 3.5rem;
                 padding: 110px 0 0 50px;
             }
 
             ul {
                 list-style-type: none;
+                max-width: 60%;
+                margin-top: 40px;
                 padding-left: 20px;
-                max-width: 50%;
+
+                @media (min-width: $mobile-breakpoint) {
+                    margin-top: 160px;
+                }
 
                 li {
                     display: inline;
+                    filter: blur(10px);
                     opacity: .7;
 
                     &.active {
@@ -104,7 +111,7 @@ $mobile-breakpoint: 728px;
         }
 
         &.graphic {
-            background: url('./../img/coney-island.jpg'), url('./../img/diagonal.png');
+            background: url('./../img/coney-island.jpg');
             background-size: cover;
             background-position: 0 -300px;
             overflow: hidden;
@@ -141,15 +148,26 @@ $mobile-breakpoint: 728px;
             .diagonal-box {
                 background: url('../img/diagonal.png');
                 position: absolute;
-                opacity: 1;
-                width: 100%;
-                height: 1300px;
-                mix-blend-mode: color-burn;
+                mix-blend-mode: darken;
+                opacity: 0;
+                width: 200%;
+                height: 2500px;
+                transform: scale(4);
+            }
 
-                &.animate {
-                    mix-blend-mode: difference;
-                    transform: rotate(180deg);
-                    transition: 2s transform;
+            &.animate {
+
+                h1 {
+                    filter: blur(0px);
+                    margin-left: 0;
+                    transition: filter 1s ease-in, margin-left .7s ease-in;
+                }
+
+                .diagonal-box {
+                    left: -170%;
+                    opacity: 1;
+                    transition: transform 1s ease-out, opacity 1s ease-out;
+                    transform: scale(1);
                 }
             }
         }

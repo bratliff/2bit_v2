@@ -1,10 +1,19 @@
 $(document).ready(function(){
 
-    console.log('hello js');
-
     var bit_two = {
-        init : function addHandlers() {
-            alert('run init');
+        counter: 0,
+        openingtext : function() {
+            
+        },
+        init : function() {
+
+            $('.graphic').click(function(){
+                $('.graphic').addClass('animate');
+            });
+
+            setInterval(function(){
+                bit_two.openingtext()
+            }, 400);
         }
     }
 

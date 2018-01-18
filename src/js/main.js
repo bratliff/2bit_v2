@@ -1,9 +1,22 @@
 $(document).ready(function(){
 
     var bit_two = {
-        test : 'whatever'
+        counter: 0,
+        openingtext : function() {
+            
+        },
+        init : function() {
+
+            $('.graphic').click(function(){
+                $('.graphic').addClass('animate');
+            });
+
+            setInterval(function(){
+                bit_two.openingtext()
+            }, 400);
+        }
     }
 
-console.log(bit_two.test)
+bit_two.init();
 
 });
