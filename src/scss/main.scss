@@ -20,7 +20,7 @@ $mobile-breakpoint: 728px;
         justify-content: space-between;
         position: fixed;
         width: 100%;
-        z-index: 2;
+        z-index: 10;
     }
 
     h1, h2, h3, h4 {
@@ -30,9 +30,14 @@ $mobile-breakpoint: 728px;
     }
 
     h1 {
-        filter: blur(10px);
         font-size: 4em;
-        margin: 150px 0 0 -100%;
+        margin-top: 150px;
+    }
+
+    .container {
+        @media (min-width: 1200px) {
+            max-width: 1240px;
+        }
     }
 
     .nav {
@@ -55,126 +60,21 @@ $mobile-breakpoint: 728px;
     }
 
     section {
-        background: #999;
+        //background: #999;
         height: 800px;
         text-transform: uppercase;
 
-        // Top Hero section
+        &.development {
+            background: white;
 
-        &.hero {
-            background: url('./../img/forest.jpg') #666;
-            color: #fff;
-            font-family: $hero-font;
-            font-size: 3rem;
-            padding: 220px 0 0 0;
-            vertical-align: bottom;
-
-            @media (min-width: $mobile-breakpoint) {
-                font-size: 3.5rem;
-                padding: 110px 0 0 50px;
-            }
-
-            ul {
-                list-style-type: none;
-                max-width: 60%;
-                margin-top: 40px;
-                padding-left: 20px;
-
-                @media (min-width: $mobile-breakpoint) {
-                    margin-top: 160px;
-                }
-
-                li {
-                    display: inline;
-                    filter: blur(10px);
-                    opacity: .7;
-
-                    &.active {
-                        opacity: 1;
-                    }
-                    &:nth-child(2) {
-                        font-size: 1.5em;
-                    }
-                    &:nth-child(4) {
-                        font-size: 1.4em;
-                    }
-                }
-            }
-
-            .design {
-                font-size: 1.7em;
-            }
-
-            .development {
-                font-size: 1.4em;
-            }
-        }
-
-        &.graphic {
-            background: url('./../img/coney-island.jpg');
-            background-size: cover;
-            background-position: 0 -300px;
-            overflow: hidden;
-            position: relative;
-
-            .overlay {
-                display: block;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background: lightblue;
-                top: 0;
-                opacity: .5;
-                background-blend-mode: color-dodge;
-            }
-
-            .corkboard {
-                position: absolute;
-                z-index: 2;
-            }
-
-            img {
-                margin: 7px 3px;
-                //opacity: .7;
-
-                &:hover {
-                    outline: 3px solid #fff;
-                    opacity: 1;
-                    z-index: 2;
-                    transition: .7s opacity;
-                }
-            }
-
-            .diagonal-box {
-                background: url('../img/diagonal.png');
-                position: absolute;
-                mix-blend-mode: darken;
-                opacity: 0;
-                width: 200%;
-                height: 2500px;
-                transform: scale(4);
-            }
-
-            &.animate {
-
-                h1 {
-                    filter: blur(0px);
-                    margin-left: 0;
-                    transition: filter 1s ease-in, margin-left .7s ease-in;
-                }
-
-                .diagonal-box {
-                    left: -170%;
-                    opacity: 1;
-                    transition: transform 1s ease-out, opacity 1s ease-out;
-                    transform: scale(1);
-                }
+            h1 {
+                color: black;
             }
         }
     }
 
     .animations {
-        background: white;
+        //background: white;
         bottom: 50px;
         cursor: pointer;
         list-style-type: none;
@@ -184,11 +84,136 @@ $mobile-breakpoint: 728px;
         z-index: 2;
     }
 
-    .content {
-
-    }
-
     .logo {
         margin-left: 20px;
+    }
+
+    // Top Hero section
+    .hero-bg {
+        background: url('./../img/forest.jpg') #666;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        z-index: 1;
+    }
+
+    .hero {
+        color: #fff;
+        font-family: $hero-font;
+        font-size: 3rem;
+        //padding: 220px 0 0 0;
+        vertical-align: bottom;
+
+        .herotext {
+            border: 1px solid #F00;
+            z-index: 2;
+            position: absolute;
+        }
+
+        @media (min-width: $mobile-breakpoint) {
+            font-size: 3.5rem;
+            //padding: 110px 0 0 50px;
+        }
+
+        ul {
+            list-style-type: none;
+            max-width: 60%;
+            margin-top: 40px;
+            padding-left: 20px;
+
+            @media (min-width: $mobile-breakpoint) {
+                margin-top: 120px;
+            }
+
+            li {
+                display: inline;
+                opacity: 0;
+                transition: opacity 1s linear;
+
+                &.active {
+                    opacity: 1;
+                }
+                &:nth-child(2) {
+                    font-size: 1.5em;
+                }
+                &:nth-child(4) {
+                    font-size: 1.4em;
+                }
+            }
+        }
+
+        .design {
+            font-size: 1.7em;
+        }
+
+        .development {
+            font-size: 1.4em;
+        }
+    }
+
+    .graphic {
+        background: url('./../img/coney-island2.jpg');
+        background-size: cover;
+        background-color:rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        position: relative;
+
+        h1 {
+            filter: blur(10px);
+            margin-left:-100%;
+        }
+
+        .overlay {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: lightblue;
+            top: 0;
+            opacity: .5;
+            background-blend-mode: color-dodge;
+        }
+
+        .corkboard {
+            position: absolute;
+            z-index: 2;
+        }
+
+        img {
+            margin: 7px 3px;
+
+            &:hover {
+                outline: 3px solid #fff;
+                opacity: 1;
+                z-index: 2;
+                transition: .7s opacity;
+            }
+        }
+
+        .diagonal-box {
+            background: url('../img/diagonal.png');
+            position: absolute;
+            mix-blend-mode: color-burn;
+            opacity: 0;
+            width: 200%;
+            height: 2500px;
+            transform: scale(4);
+        }
+
+        &.animate {
+
+            h1 {
+                filter: blur(0px);
+                margin-left: 0;
+                transition: filter 1s ease-in, margin-left .7s ease-in;
+            }
+
+            .diagonal-box {
+                left: -170%;
+                opacity: 1;
+                transition: transform 1s ease-out, opacity 1s ease-out;
+                transform: scale(1);
+            }
+        }
     }
 }
