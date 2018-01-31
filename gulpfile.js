@@ -2,6 +2,7 @@
 
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
     browserSync = require('browser-sync').create(),
     reload = browserSync.reload;
 
@@ -26,7 +27,9 @@ var filesToMove = [
 gulp.task('sass', function () {
 
   return gulp.src('./src/scss/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./dist/css/'));
 });
 
