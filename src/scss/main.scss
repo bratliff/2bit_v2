@@ -98,7 +98,7 @@ $mobile-breakpoint: 768px;
     }
 
     .development-bg {
-        background: url('./../img/abstract-lake.jpg');
+        //background: url('./../img/abstract-lake.jpg');
         z-index: 3;
         display: flex;
         justify-content: center;
@@ -111,7 +111,7 @@ $mobile-breakpoint: 768px;
             width: 0px;
             position: absolute;
 
-            @for $i from 1 through 20 {
+            @for $i from 1 through 10 {
                 &:nth-child(#{$i}) {
                     background: mix($first-color, $second-color, nth($percentages, $i));
                 }
@@ -130,9 +130,11 @@ $mobile-breakpoint: 768px;
             .bands {
                 transition: width 1s;
                 height: 100%;
-
-                &:nth-child(#{$i}) {
-                    background: mix($first-color, $second-color, nth($percentages, $i));
+                @for $i from 1 through 10 {
+                    &:nth-child(#{$i}) {
+                        width: nth($percentages, $i);
+                        z-index: $i;
+                    }
                 }
 
             }

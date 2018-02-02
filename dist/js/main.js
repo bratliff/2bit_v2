@@ -32,6 +32,7 @@ $(document).ready(function(){
             $('.graphic, .diagonal-box').removeClass('show').addClass('hide');
             $('.bg').addClass('hide');
             $('.bg').eq(index).removeClass('hide').addClass('show');
+            $('.development-bg').removeClass('expand');
 
             switch(index) {
                 case 0:
