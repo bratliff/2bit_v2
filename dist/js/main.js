@@ -6,6 +6,24 @@ $(document).ready(function(){
         graphicAnim: true,
         developAnim: false,
         changeTrigger: false,
+        addListeners : function() {
+            $('.nav li').click(function(e){
+                switch($(this).index()) {
+                    case 0:
+                        $('html, body').animate({scrollTop: $('.hero').offset().top });
+                    break;
+                    case 1:
+                        $('html, body').animate({scrollTop: $('.graphic').offset().top });
+                    break;
+                    case 2:
+                        $('html, body').animate({scrollTop: $('.development').offset().top });
+                    break;
+                    case 3:
+                        $('html, body').animate({scrollTop: $('.video').offset().top });
+                    break;
+                }
+            });
+        },
         webscroll : function() {
             if(!bit_two.developAnim) {
 
@@ -75,6 +93,8 @@ $(document).ready(function(){
                 var scrolled = $(window).scrollTop();
                 bit_two.scrollWatch(scrolled);
             });
+
+            bit_two.addListeners();
         }
     }
 

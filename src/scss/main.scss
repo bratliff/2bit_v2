@@ -51,9 +51,12 @@ $mobile-breakpoint: 768px;
 
     .nav {
         color: $white;
+        background: $black;
         list-style-type: none;
-        margin: 40px 40px 0 0;
-        padding: 0;
+        font-weight: 600;
+        height: 40px;
+        margin: 40px 0;
+        padding: 10px 20px 0 0;
         text-transform: uppercase;
 
         li {
@@ -98,10 +101,10 @@ $mobile-breakpoint: 768px;
     }
 
     .development-bg {
-        //background: url('./../img/abstract-lake.jpg');
-        z-index: 3;
+        background: mix($first-color, $second-color, 60%);
         display: flex;
         justify-content: center;
+        z-index: 3;
 
         .bands {
             align-self: center;
@@ -117,12 +120,6 @@ $mobile-breakpoint: 768px;
                 }
             }
 
-            /*&:nth-child(1) {
-                background: mix($black, $white, 80%);
-            }
-            &:nth-child(2) {
-                background: mix($black, $white, 70%);
-            }*/
         }
 
         &.expand {
@@ -139,20 +136,28 @@ $mobile-breakpoint: 768px;
 
             }
         }
+
+        &.change {
+
+            .bands {
+
+            }
+
+        }
     }
 
     .diagonal-box {
-        background: url('../img/diagonal.png');
-        height: 2500px;
-        mix-blend-mode: color-burn;
+        background: url('../img/trees.jpg');
+        height: 2000px;
+        mix-blend-mode: overlay;
         opacity: 0;
         position: absolute;
         transform: scale(4);
-        width: 200%;
+        width: 50%;
         z-index: 4;
 
         &.animate {
-            left: -170%;
+            left: -20%;
             opacity: 1;
             transition: transform 1s ease-out, opacity 1s ease-out;
             transform: scale(1);
@@ -345,6 +350,39 @@ $mobile-breakpoint: 768px;
                         background-size: 38%;
                     }
                 }
+            }
+        }
+    }
+
+    .video {
+
+        .vidbox {
+            margin-top: 30px;
+        }
+
+        .programs {
+            list-style-type: none;
+            margin-top: 360px;
+
+            li {
+                clear: both;
+                margin-top: 20px;
+                position: relative;
+                min-height: 120px;
+            }
+
+            h4 {
+                font-family: "Raleway", sans-serif;
+                font-weight: 600;
+                text-transform: none;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            img {
+                float: left;
+                width: 120px;
+                margin-right: 20px;
             }
         }
     }
