@@ -49,8 +49,9 @@ $(document).ready(function(){
         changePage: function(index) {
             $('.graphic, .diagonal-box').removeClass('show').addClass('hide');
             $('.bg').addClass('hide');
+            if
             $('.bg').eq(index).removeClass('hide').addClass('show');
-            $('.development-bg').removeClass('expand');
+            $('.bands-bg').removeClass('expand');
 
             switch(index) {
                 case 0:
@@ -63,7 +64,10 @@ $(document).ready(function(){
                 break;
                 case 2:
                     bit_two.webscroll();
-                    $('.development-bg').addClass('expand');
+                    $('.bands-bg').addClass('expand');
+                break;
+                case 3:
+                    $('.bands-bg').addClass('motion');
                 break;
             }
 
@@ -75,8 +79,11 @@ $(document).ready(function(){
             if (scrolled > 400 && scrolled < 1200) {
                 bit_two.changePage(1);
             }
-            if (scrolled > 1300) {
+            if (scrolled > 1300 && scrolled < 2000) {
                 bit_two.changePage(2);
+            }
+            if (scrolled > 2000) {
+                bit_two.changePage(3);
             }
         },
         init : function() {
