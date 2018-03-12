@@ -50,7 +50,7 @@ $(document).ready(function(){
             $('.graphic, .diagonal-box').removeClass('show').addClass('hide');
             $('.bg').addClass('hide');
             $('.bg').eq(index).removeClass('hide').addClass('show');
-            $('.development-bg').removeClass('expand');
+            //$('.development-bg').removeClass('expand');
 
             switch(index) {
                 case 0:
@@ -63,20 +63,28 @@ $(document).ready(function(){
                 break;
                 case 2:
                     bit_two.webscroll();
-                    $('.development-bg').addClass('expand');
+                    $('.development-bg').addClass('expand').removeClass('change');
+                break;
+                case 3:
+                    $('.bg').removeClass('hide');
+                    $('.development-bg').addClass('expand').addClass('change');
                 break;
             }
 
         },
         scrollWatch: function(scrolled) {
+
             if (scrolled < 400) {
                 bit_two.changePage(0);
             }
             if (scrolled > 400 && scrolled < 1200) {
                 bit_two.changePage(1);
             }
-            if (scrolled > 1300) {
+            if (scrolled > 1300 && scrolled < 2300) {
                 bit_two.changePage(2);
+            }
+            if (scrolled > 2300 && scrolled < 3300) {
+                bit_two.changePage(3);
             }
         },
         init : function() {

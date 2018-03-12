@@ -138,9 +138,14 @@ $mobile-breakpoint: 768px;
         }
 
         &.change {
+            transition: background 1s;
 
             .bands {
-
+                @for $i from 1 through 10 {
+                    &:nth-child(#{$i}) {
+                        background: mix($third-color, $fourth-color, nth($percentages, $i));
+                    }
+                }
             }
 
         }
@@ -317,7 +322,6 @@ $mobile-breakpoint: 768px;
 
             .screen {
                 border-radius: 8px;
-                //border: 1px solid #FC0;
                 display: block;
                 height: 80%;
                 margin: 0 auto;
@@ -358,6 +362,10 @@ $mobile-breakpoint: 768px;
 
         .vidbox {
             margin-top: 30px;
+
+            video {
+                width: 100%;
+            }
         }
 
         .programs {
