@@ -49,37 +49,23 @@ $(document).ready(function(){
         changePage: function(index) {
             $('.graphic, .diagonal-box').removeClass('show').addClass('hide');
             $('.bg').addClass('hide');
-            if
-            $('.bg').eq(index).removeClass('hide').addClass('show');
-<<<<<<< HEAD
-            //$('.development-bg').removeClass('expand');
-=======
-            $('.bands-bg').removeClass('expand');
->>>>>>> 077dc0f49bea54db551ae2fd78c6a90cc3d6057f
 
             switch(index) {
                 case 0:
 
                 break;
                 case 1:
-                    bit_two.graphicAnim ? $('.graphic, .diagonal-box').addClass('animate') : $('.graphic, .diagonal-box').addClass('show');
+                    console.log('case 1 hit');
+                    bit_two.graphicAnim ? $('.graphic, .diagonal-box').addClass('animate') : $('.graphic, .diagonal-box').removeClass('hide').addClass('show');
 
                     bit_two.graphicAnim = false;
                 break;
                 case 2:
                     bit_two.webscroll();
-<<<<<<< HEAD
-                    $('.development-bg').addClass('expand').removeClass('change');
-                break;
-                case 3:
-                    $('.bg').removeClass('hide');
-                    $('.development-bg').addClass('expand').addClass('change');
-=======
                     $('.bands-bg').addClass('expand');
                 break;
                 case 3:
                     $('.bands-bg').addClass('motion');
->>>>>>> 077dc0f49bea54db551ae2fd78c6a90cc3d6057f
                 break;
             }
 
@@ -92,17 +78,10 @@ $(document).ready(function(){
             if (scrolled > 400 && scrolled < 1200) {
                 bit_two.changePage(1);
             }
-<<<<<<< HEAD
-            if (scrolled > 1300 && scrolled < 2300) {
-                bit_two.changePage(2);
-            }
-            if (scrolled > 2300 && scrolled < 3300) {
-=======
             if (scrolled > 1300 && scrolled < 2000) {
                 bit_two.changePage(2);
             }
             if (scrolled > 2000) {
->>>>>>> 077dc0f49bea54db551ae2fd78c6a90cc3d6057f
                 bit_two.changePage(3);
             }
         },
