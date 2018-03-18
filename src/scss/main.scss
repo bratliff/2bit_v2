@@ -1,16 +1,5 @@
 @import "variables";
 
-$black : #000;
-$white: #FFF;
-$nav-hover: #FC0;
-
-$main-font: "Raleway", sans-serif;
-$hero-font: "Anton", sans-serif;
-
-$desktop-breakpoint: 1200px;
-$midpoint-breakpoint: 992px;
-$mobile-breakpoint: 768px;
-
 .bit2 {
     background: $white;
     color: white;
@@ -100,13 +89,13 @@ $mobile-breakpoint: 768px;
         z-index: 2;
     }
 
-    .development-bg {
-        background: mix($first-color, $second-color, 60%);
+    .bands-bg {
+        background: mix($bands-color1, $bands-color2, 60%);
         display: flex;
         justify-content: center;
         z-index: 3;
 
-        .bands {
+        div {
             align-self: center;
             border-radius: 0px;
             display: block;
@@ -116,15 +105,14 @@ $mobile-breakpoint: 768px;
 
             @for $i from 1 through 10 {
                 &:nth-child(#{$i}) {
-                    background: mix($first-color, $second-color, nth($percentages, $i));
+                    background: mix($bands-color1, $bands-color2, nth($percentages, $i));
                 }
             }
-
         }
 
         &.expand {
 
-            .bands {
+            div {
                 transition: width 1s;
                 height: 100%;
                 @for $i from 1 through 10 {
@@ -137,13 +125,12 @@ $mobile-breakpoint: 768px;
             }
         }
 
-        &.change {
-            transition: background 1s;
+        &.motion {
 
             .bands {
                 @for $i from 1 through 10 {
                     &:nth-child(#{$i}) {
-                        background: mix($third-color, $fourth-color, nth($percentages, $i));
+                        background: mix($bands-color3, $bands-color4, nth($percentages, $i));
                     }
                 }
             }
