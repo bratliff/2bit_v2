@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     browserSync = require('browser-sync').create(),
+    injectPartials = require('gulp-inject-partials'),
     reload = browserSync.reload;
 
 gulp.task('serve', function () {
@@ -50,4 +51,10 @@ gulp.task('move', function(){
   .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['sass', 'move', 'watch', 'serve']);
+gulp.task('index', function () {
+  return gulp.src('./src/index.html')
+           .pipe(injectPartials())
+           .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('default', ['sass', 'move', 'watch', 'serve', 'index']);
