@@ -49,9 +49,9 @@ $(document).ready(function(){
         changePage: function(index) {
             $('.graphic, .diagonal-box').removeClass('show').addClass('hide');
             $('.bg').addClass('hide');
-            if
-            $('.bg').eq(index).removeClass('hide').addClass('show');
-            $('.bands-bg').removeClass('expand');
+
+            // $('.bg').eq(index).removeClass('hide').addClass('show');
+            // $('.bands-bg').removeClass('expand');
 
             switch(index) {
                 case 0:
