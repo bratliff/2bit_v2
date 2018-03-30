@@ -20,6 +20,10 @@
         }
     }
 
+    a {
+        cursor: pointer;
+    }
+
     .content {
         position: relative;
         z-index: 10;
@@ -44,7 +48,6 @@
     }
 
     .nav {
-        color: $white;
         background: $black;
         list-style-type: none;
         font-weight: 600;
@@ -66,6 +69,10 @@
                 color: $nav-hover;
                 transition: color .5s linear;
             }
+        }
+
+        a {
+            color: $white;
         }
     }
 
@@ -333,6 +340,17 @@
 
     .development {
         color: white;
+        overflow: hidden;
+
+        .slideshow {
+            border: 1px solid #fff;
+            position: absolute;
+            width: 6000px;
+
+            &.move {
+                left:-800px;
+            }
+        }
 
         h1 {
             color: white;
@@ -388,6 +406,11 @@
                     }
                 }
             }
+        }
+
+        .container {
+            position: relative;
+            float: left;
         }
     }
 

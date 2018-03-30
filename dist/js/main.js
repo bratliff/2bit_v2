@@ -6,25 +6,57 @@ $(document).ready(function(){
         graphicAnim: true,
         developAnim: false,
         changeTrigger: false,
+        hashChange : function() {
+
+            switch(window.location.hash) {
+
+                case "#hero":
+                    $('html, body').animate({scrollTop: $('.hero').offset().top });
+                break;
+                case "#graphic":
+                    $('html, body').animate({scrollTop: $('.graphic').offset().top });
+                break;
+                case "#development":
+                    $('html, body').animate({scrollTop: $('.development').offset().top });
+                break;
+                case "#motion":
+                    $('html, body').animate({scrollTop: $('.motion').offset().top });
+                break;
+                case "#contact":
+                    $('html, body').animate({scrollTop: $('.contact').offset().top });
+                break;
+                default:
+                    $('html, body').animate({scrollTop: $('.hero').offset().top });
+                break;
+            }
+        },
         addListeners : function() {
-            $('.nav li').click(function(e){
-                switch($(this).index()) {
+            $('.nav li a').click(function(e){
+
+                /*switch($(this).index()) {
                     case 0:
-                        $('html, body').animate({scrollTop: $('.hero').offset().top });
+                        window.location.hash = "hero";
                     break;
                     case 1:
-                        $('html, body').animate({scrollTop: $('.graphic').offset().top });
+                        window.location.hash = "graphic";
                     break;
                     case 2:
-                        $('html, body').animate({scrollTop: $('.development').offset().top });
+                        window.location.hash = "development";
                     break;
                     case 3:
-                        $('html, body').animate({scrollTop: $('.motion').offset().top });
+                        window.location.hash = "motion";
                     break;
                     case 4:
-                        $('html, body').animate({scrollTop: $('.contact').offset().top });
+                        window.location.hash = "contact";
                     break;
-                }
+                }*/
+                setTimeout(function(){
+                    bit_two.hashChange();
+                }, 100);
+            });
+
+            $('.projects').click(function(e){
+                $('.slideshow').addClass('move');
             });
         },
         webscroll : function() {
@@ -116,5 +148,6 @@ $(document).ready(function(){
     }
 
 bit_two.init();
+
 
 });
