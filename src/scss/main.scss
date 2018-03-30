@@ -1,15 +1,5 @@
 @import "variables";
 
-$black : #000;
-$white: #FFF;
-$nav-hover: #FC0;
-
-$main-font: "Raleway", sans-serif;
-$hero-font: "Anton", sans-serif;
-
-$desktop-breakpoint: 1200px;
-$midpoint-breakpoint: 992px;
-$mobile-breakpoint: 768px;
 
 .bit2 {
     background: $white;
@@ -91,9 +81,6 @@ $mobile-breakpoint: 768px;
         &.show {
             opacity: 1;
         }
-        &.hide {
-            opacity: 0;
-        }
     }
 
     .hero-bg {
@@ -109,12 +96,12 @@ $mobile-breakpoint: 768px;
     }
 
     .development-bg {
-        background: mix($first-color, $second-color, 60%);
+        background: #666;
         display: flex;
         justify-content: center;
         z-index: 3;
 
-        .bands {
+        div {
             align-self: center;
             border-radius: 0px;
             display: block;
@@ -124,7 +111,7 @@ $mobile-breakpoint: 768px;
 
             @for $i from 1 through 10 {
                 &:nth-child(#{$i}) {
-                    background: mix($first-color, $second-color, nth($percentages, $i));
+                    background: mix($bands-color1, $bands-color2, nth($percentages, $i));
                 }
             }
 
@@ -132,7 +119,7 @@ $mobile-breakpoint: 768px;
 
         &.expand {
 
-            .bands {
+            div {
                 transition: width 1s;
                 height: 100%;
                 @for $i from 1 through 10 {
@@ -149,16 +136,36 @@ $mobile-breakpoint: 768px;
         &.change {
             transition: background 1s;
 
-            .bands {
+            div {
                 @for $i from 1 through 10 {
                     &:nth-child(#{$i}) {
-                        background: mix($third-color, $fourth-color, nth($percentages, $i));
+                        background: mix($bands-color3, $bands-color4, nth($percentages, $i));
+                        transform: rotate(0deg);
                         transition: all $i * 0.25s;
                     }
                 }
             }
 
         }
+        &.rotate {
+            transition: transform 1s;
+
+            div {
+                @for $i from 1 through 10 {
+                    &:nth-child(#{$i}) {
+                        background: mix($bands-color5, $bands-color6, nth($percentages, $i));
+                        transform: rotate(90deg) scaleY(2);
+                        transition: all $i * 0.25s;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .contact-bg {
+        background: url('./../img/contact-bg.jpg') no-repeat;
+        z-index: 3;
     }
 
     .diagonal-box {
@@ -186,7 +193,8 @@ $mobile-breakpoint: 768px;
     }
 
     section {
-        height: 800px;
+        height: 1200px;
+
         @media (max-width: $mobile-breakpoint) {
             height: auto;
             min-height: 800px;
@@ -383,7 +391,7 @@ $mobile-breakpoint: 768px;
         }
     }
 
-    .video {
+    .motion {
 
         .vidbox {
             margin-top: 30px;
@@ -423,5 +431,12 @@ $mobile-breakpoint: 768px;
                 overflow: hidden;
             }
         }
+    }
+
+    .contact {
+
+         h1 {
+             color: #666;
+         }
     }
 }

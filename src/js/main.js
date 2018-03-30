@@ -19,7 +19,10 @@ $(document).ready(function(){
                         $('html, body').animate({scrollTop: $('.development').offset().top });
                     break;
                     case 3:
-                        $('html, body').animate({scrollTop: $('.video').offset().top });
+                        $('html, body').animate({scrollTop: $('.motion').offset().top });
+                    break;
+                    case 4:
+                        $('html, body').animate({scrollTop: $('.contact').offset().top });
                     break;
                 }
             });
@@ -48,41 +51,49 @@ $(document).ready(function(){
         },
         changePage: function(index) {
             $('.graphic, .diagonal-box').removeClass('show').addClass('hide');
-            $('.bg').addClass('hide');
 
             switch(index) {
                 case 0:
-
+                    $('.hero-bg').addClass('show');
+                    $('.graphic-bg').removeClass('show');
                 break;
                 case 1:
-                    console.log('case 1 hit');
-                    bit_two.graphicAnim ? $('.graphic, .diagonal-box').addClass('animate') : $('.graphic, .diagonal-box').removeClass('hide').addClass('show');
+                    bit_two.graphicAnim ? $('.graphic, .diagonal-box').addClass('animate') : $('.graphic, .diagonal-box').addClass('show');
 
                     bit_two.graphicAnim = false;
+                    $('.graphic-bg').addClass('show');
+                    $('.development-bg').removeClass('show');
                 break;
                 case 2:
                     bit_two.webscroll();
-                    $('.bands-bg').addClass('expand');
+                    $('.development-bg').addClass('expand show').removeClass('change');
                 break;
                 case 3:
-                    $('.bands-bg').addClass('motion');
+                    $('.development-bg').addClass('change show');
+                    $('.development-bg').removeClass('rotate');
+                break;
+                case 4:
+                    $('.development-bg').addClass('rotate expand show');
                 break;
             }
 
         },
         scrollWatch: function(scrolled) {
 
-            if (scrolled < 400) {
+            if (scrolled < 850) {
                 bit_two.changePage(0);
             }
-            if (scrolled > 400 && scrolled < 1200) {
+            if (scrolled > 850 && scrolled < 2100) {
                 bit_two.changePage(1);
             }
-            if (scrolled > 1300 && scrolled < 2000) {
+            if (scrolled > 2100 && scrolled < 3500) {
                 bit_two.changePage(2);
             }
-            if (scrolled > 2000) {
+            if (scrolled > 3500 && scrolled < 4500) {
                 bit_two.changePage(3);
+            }
+            if (scrolled > 4500) {
+                bit_two.changePage(4);
             }
         },
         init : function() {
