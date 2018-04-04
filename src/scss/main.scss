@@ -21,7 +21,12 @@
     }
 
     a {
+        color: orange;
         cursor: pointer;
+
+        &:hover {
+            color: yellow;
+        }
     }
 
     .content {
@@ -341,6 +346,7 @@
     .development {
         color: white;
         overflow: hidden;
+        position: relative;
 
         .slideshow {
             border: 1px solid #fff;
@@ -365,7 +371,6 @@
             background: url('../img/computer.png') no-repeat;
             background-position: 6px center;
             background-size: 100%;
-            //border: 1px solid #F00;
             height: 378px;
             padding-top:20px;
             text-align: center;
@@ -406,11 +411,6 @@
                     }
                 }
             }
-        }
-
-        .container {
-            position: relative;
-            float: left;
         }
     }
 
