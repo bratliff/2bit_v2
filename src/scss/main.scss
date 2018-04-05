@@ -25,7 +25,9 @@
         cursor: pointer;
 
         &:hover {
-            color: yellow;
+            color: $link-hover;
+            transition: color .4s linear;
+            text-decoration: none;
         }
     }
 
@@ -69,15 +71,15 @@
             float:left;
             margin-left: 20px;
             cursor: pointer;
-
-            &:hover {
-                color: $nav-hover;
-                transition: color .5s linear;
-            }
         }
 
         a {
             color: $white;
+
+            &:hover {
+                color: $link-hover;
+                transition: color .5s linear;
+            }
         }
     }
 
@@ -461,5 +463,12 @@
          h1 {
              color: #666;
          }
+    }
+
+    //Styles for the development page
+
+    .develop-page {
+        background: darkgrey;
+        height: 3000px;
     }
 }
