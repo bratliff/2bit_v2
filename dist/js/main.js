@@ -6,6 +6,7 @@ $(document).ready(function(){
         graphicAnim: true,
         developAnim: false,
         changeTrigger: false,
+        currentpage: 'home',
         hashChange : function() {
 
             switch(window.location.hash) {
@@ -32,24 +33,6 @@ $(document).ready(function(){
         },
         addListeners : function() {
             $('.nav li a').click(function(e){
-
-                /*switch($(this).index()) {
-                    case 0:
-                        window.location.hash = "hero";
-                    break;
-                    case 1:
-                        window.location.hash = "graphic";
-                    break;
-                    case 2:
-                        window.location.hash = "development";
-                    break;
-                    case 3:
-                        window.location.hash = "motion";
-                    break;
-                    case 4:
-                        window.location.hash = "contact";
-                    break;
-                }*/
                 setTimeout(function(){
                     bit_two.hashChange();
                 }, 100);
@@ -112,21 +95,42 @@ $(document).ready(function(){
         },
         scrollWatch: function(scrolled) {
 
-            if (scrolled < 850) {
-                bit_two.changePage(0);
-            }
-            if (scrolled > 850 && scrolled < 2100) {
-                bit_two.changePage(1);
-            }
-            if (scrolled > 2100 && scrolled < 3500) {
-                bit_two.changePage(2);
-            }
-            if (scrolled > 3500 && scrolled < 4500) {
-                bit_two.changePage(3);
-            }
-            if (scrolled > 4500) {
-                bit_two.changePage(4);
-            }
+            switch(bit_two.currentpage) {
+                    case 'home':
+                        if (scrolled < 850) {
+                            bit_two.changePage(0);
+                        }
+                        if (scrolled > 850 && scrolled < 2100) {
+                            bit_two.changePage(1);
+                        }
+                        if (scrolled > 2100 && scrolled < 3500) {
+                            bit_two.changePage(2);
+                        }
+                        if (scrolled > 3500 && scrolled < 4500) {
+                            bit_two.changePage(3);
+                        }
+                        if (scrolled > 4500) {
+                            bit_two.changePage(4);
+                        }
+                    break;
+                    case 'development':
+                        if (scrolled < 850) {
+                            console.log('devel 1');
+                        }
+                        if (scrolled > 850 && scrolled < 2100) {
+                            console.log('devel 2');
+                        }
+                        if (scrolled > 2100 && scrolled < 3500) {
+                            console.log('devel 3');
+                        }
+                        if (scrolled > 3500 && scrolled < 4500) {
+                            console.log('devel 4');
+                        }
+                        if (scrolled > 4500) {
+                            console.log('devel 5');
+                        }
+                    break;
+                }
         },
         init : function() {
 
@@ -142,6 +146,14 @@ $(document).ready(function(){
                 var scrolled = $(window).scrollTop();
                 bit_two.scrollWatch(scrolled);
             });
+
+
+
+            if (location.href.split("/").slice(-1) == "development.html") {
+                bit_two.currentpage = "development";
+            } else {
+                bit_two.currentpage = "home";
+            }
 
             bit_two.addListeners();
         }
