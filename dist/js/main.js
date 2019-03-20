@@ -8,6 +8,7 @@ $(document).ready(function(){
         changeTrigger: false,
         currentpage: 'home',
         hashChange : function() {
+            console.log('hash change');
 
             switch(window.location.hash) {
 
@@ -40,6 +41,10 @@ $(document).ready(function(){
 
             $('.projects').click(function(e){
                 $('.slideshow').addClass('move');
+            });
+
+            $('.dev-nav').click(function(){
+                localStorage.setItem('hash', 'development');
             });
         },
         webscroll : function() {
@@ -114,6 +119,7 @@ $(document).ready(function(){
                         }
                     break;
                     case 'development':
+
                         if (scrolled < 850) {
                             console.log('devel 1');
                         }
@@ -150,9 +156,14 @@ $(document).ready(function(){
 
 
             if (location.href.split("/").slice(-1) == "development.html") {
+                $('.development-bg').addClass('expand show change2');
                 bit_two.currentpage = "development";
             } else {
                 bit_two.currentpage = "home";
+                var currentHash = localStorage.getItem('hash');
+                setTimeout(function(){
+                    alert(currentHash);
+                }, 1000);
             }
 
             bit_two.addListeners();

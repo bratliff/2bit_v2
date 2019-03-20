@@ -2,22 +2,20 @@
 
 
 .bit2 {
-    background: $white;
+    //background: $white;
     color: white;
     font-family: $main-font;
     font-size: 16px;
 
     header {
+        background: $nav-bg-color;
         display: flex;
         height: 100px;
+        align-items: center;
         justify-content: space-between;
         position: fixed;
         width: 100%;
         z-index: 12;
-
-        @media (max-width: $mobile-breakpoint) {
-            background: $black;
-        }
     }
 
     a {
@@ -55,12 +53,9 @@
     }
 
     .nav {
-        background: $black;
         list-style-type: none;
         font-weight: 600;
-        height: 40px;
-        margin: 40px 0;
-        padding: 10px 20px 0 0;
+        margin-right: 40px;
         text-transform: uppercase;
 
         @media (max-width: $mobile-breakpoint) {
@@ -161,6 +156,22 @@
             }
 
         }
+
+        &.change2 {
+            transition: background 1s;
+
+            div {
+                @for $i from 1 through 10 {
+                    &:nth-child(#{$i}) {
+                        background: mix($bands-color7, $bands-color8, nth($percentages, $i));
+                        transform: rotate(0deg);
+                        transition: all $i * 0.25s;
+                    }
+                }
+            }
+
+        }
+
         &.rotate {
             transition: transform 1s;
 
@@ -288,7 +299,7 @@
         position: relative;
 
         h1 {
-            filter: blur(10px);
+            //filter: blur(10px);
             margin-left:-100%;
         }
 
@@ -458,17 +469,28 @@
         }
     }
 
-    .contact {
-
-         h1 {
-             color: #666;
-         }
-    }
-
     //Styles for the development page
 
     .develop-page {
-        background: darkgrey;
-        height: 3000px;
+        background: none;
+        height: 6000px;
+        padding-top: 100px;
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .ludens {
+            width: 70%;
+            margin-top: -130px;
+        }
+        .clearly {
+            width: 70%;
+            float: right;
+        }
     }
 }
