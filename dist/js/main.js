@@ -14,6 +14,9 @@ $(document).ready(function(){
                 case "#hero":
                     $('html, body').animate({scrollTop: $('.hero').offset().top });
                 break;
+                case "#ux":
+                    $('html, body').animate({scrollTop: $('.ux').offset().top });
+                break;
                 case "#graphic":
                     $('html, body').animate({scrollTop: $('.graphic').offset().top });
                 break;
@@ -39,8 +42,14 @@ $(document).ready(function(){
             });
 
             $('.projects').click(function(e){
-                $('.slideshow').addClass('move');
+                $('.development').removeClass('first').addClass('second');
             });
+
+            $('.development-nav li').click(function(e){
+                var index = $(this).index();
+
+                $('.development .container .row').hide();
+            })
         },
         webscroll : function() {
             if(!bit_two.developAnim) {
@@ -62,6 +71,7 @@ $(document).ready(function(){
             if(bit_two.textcounter < 6) {
                 $('.herotext li').eq(bit_two.textcounter).addClass('active');
                 bit_two.textcounter++;
+                bit_two.textcounter > 5 ? $('.hero ul').addClass('border') : '';
             }
         },
         changePage: function(index) {
@@ -69,25 +79,41 @@ $(document).ready(function(){
 
             switch(index) {
                 case 0:
+                    // Hero section
+                    
                     $('.hero-bg').addClass('show');
-                    $('.graphic-bg').removeClass('show');
-                break;
-                case 1:
-                    bit_two.graphicAnim ? $('.graphic, .diagonal-box').addClass('animate') : $('.graphic, .diagonal-box').addClass('show');
-
-                    bit_two.graphicAnim = false;
-                    $('.graphic-bg').addClass('show');
                     $('.development-bg').removeClass('show');
                 break;
+                case 1:
+                    // UX section
+
+                    $('.development-bg').addClass('expand show').removeClass('grey');
+                break;
                 case 2:
+                    // Development section
+
                     bit_two.webscroll();
-                    $('.development-bg').addClass('expand show').removeClass('change');
+
+                    $('.development-bg').addClass('grey expand show').removeClass('blue');
                 break;
                 case 3:
-                    $('.development-bg').addClass('change show');
-                    $('.development-bg').removeClass('rotate');
+                    // Graphic section
+
+                     bit_two.graphicAnim ? $('.graphic, .diagonal-box').addClass('animate') : $('.graphic, .diagonal-box').addClass('show');
+
+                    bit_two.graphicAnim = false;
+                    
+                    $('.development-bg').addClass('blue expand show').removeClass('grey gold');
                 break;
                 case 4:
+                    // Motion section
+
+                    $('.development-bg').addClass('gold expand show');
+                    $('.development-bg').removeClass('rotate');
+                break;
+                case 5:
+                    // Contact section
+
                     $('.development-bg').addClass('rotate expand show');
                 break;
             }
@@ -101,6 +127,7 @@ $(document).ready(function(){
                             bit_two.changePage(0);
                         }
                         if (scrolled > 850 && scrolled < 2100) {
+
                             bit_two.changePage(1);
                         }
                         if (scrolled > 2100 && scrolled < 3500) {
@@ -109,8 +136,11 @@ $(document).ready(function(){
                         if (scrolled > 3500 && scrolled < 4500) {
                             bit_two.changePage(3);
                         }
-                        if (scrolled > 4500) {
+                        if (scrolled > 4500 && scrolled < 5800) {
                             bit_two.changePage(4);
+                        }
+                        if (scrolled > 5800) {
+                            bit_two.changePage(5);
                         }
                     break;
                     case 'development':
@@ -146,7 +176,6 @@ $(document).ready(function(){
                 var scrolled = $(window).scrollTop();
                 bit_two.scrollWatch(scrolled);
             });
-
 
 
             if (location.href.split("/").slice(-1) == "development.html") {
