@@ -1,6 +1,6 @@
 {
   "name": "2bit-creative",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Site for the 2Bit Creative company",
   "main": "index.js",
   "scripts": {
@@ -16,8 +16,7 @@
     "gulp-inject-partials": "^1.0.4",
     "gulp-livereload": "^3.8.1",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.4",
-    "include": "^1.1.0"
+    "gulp-sourcemaps": "^2.6.4"
   },
   "dependencies": {
     "gulp-cli": "^1.4.0",
